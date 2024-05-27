@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import "package:animated_container/colors.dart";
 import 'home_page.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: MainColors.brownNude),
         useMaterial3: true,
       ),
       home: const HomePage(),
