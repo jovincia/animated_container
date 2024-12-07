@@ -12,17 +12,35 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   double boxWeight = 100;
   double boxWidth = 100;
+  var boxColor = MainColors.brownCoffeeMilk;
+  double boxX = -1;
+  double boxY = -1;
+
 
   void _expandedBox() {
     setState(() {
       boxWeight = 300;
+      boxWidth = 300;
+    });
+  }
+
+  void _changeColor() {
+    setState(() {
+      boxColor = MainColors.brown1;
+    });
+  }
+
+   void _moveBox() {
+    setState(() {
+      boxX = 1;
+      boxY = 1;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: _expandedBox,
+      onTap: _changeColor,
       child: Scaffold(
         appBar: AppBar(
           title: Center(
@@ -38,12 +56,19 @@ class _HomePageState extends State<HomePage> {
         body: Center(
           child: AnimatedContainer(
             duration: const Duration(seconds: 3),
-            height: 200,
-            width: 200,
-            color: MainColors.brownCoffeeMilk,
+            alignment: Alignment(boxX, boxY),
+            child: Container(
+              height: boxWeight,
+              width: boxWidth,
+              color: boxColor,
+            ),
           ),
+         
         ),
+       
+        
       ),
+      
     );
   }
 }
